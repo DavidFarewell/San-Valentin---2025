@@ -5,6 +5,11 @@ import "./assets/img/rigo-baby.jpg";
 import "./assets/img/4geeks.ico";
 
 window.onload = function() {
+    generateRandomCard();
+    document.getElementById('theCard').addEventListener('click', generateRandomCard);
+};
+
+function generateRandomCard() {
     let cardNumbers = ["A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"];
     let suits = ["Diamonds", "Spades", "Hearts", "Clubs"];
 
@@ -17,7 +22,7 @@ window.onload = function() {
     cardElement.className = "card " + getSuitClass(selectedSuit);
 
     console.log("Generated card: " + cardNumbers[randomCardIndex] + " of " + selectedSuit);
-};
+}
 
 function getSuitClass(suit) {
     switch (suit) {
@@ -27,3 +32,4 @@ function getSuitClass(suit) {
         case "Clubs": return "suit-clubs";
     }
 }
+

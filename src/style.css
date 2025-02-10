@@ -1,13 +1,14 @@
 @import "bootstrap/dist/css/bootstrap.min.css";
 
 body {
-  background: rgb(17, 131, 13);
+  background: rgb(15, 117, 15);
 }
 
 .centered {
   margin-left: auto;
   margin-right: auto;
   width: 300px;
+  margin-top: 50px;
 }
 
 .card {
@@ -22,6 +23,12 @@ body {
   align-items: center;
   font-size: 150px;
   font-family: Arial, serif;
+  transition: transform 0.2s ease-in-out;
+}
+
+.card:hover {
+  transform: scale(1.1);
+  cursor: pointer;
 }
 
 .suit-hearts::before, .suit-hearts::after,
