@@ -62,6 +62,7 @@ h1 {
 
 .card.flip {
     transform: rotateY(180deg);
+
 }
 
 .suit-hearts::before, .suit-hearts::after,
