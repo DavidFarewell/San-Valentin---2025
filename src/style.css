@@ -9,6 +9,16 @@ html, body {
     background-attachment: fixed;
     background-size: cover;
 }
+.fixed-bottom {
+    color: #d3d3d3;
+    text-align: center;
+    width: 100%;
+    padding: 15px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: 10;
+  }
 
 h1 {
     color: white;
