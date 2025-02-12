@@ -6,8 +6,18 @@ import "./assets/img/4geeks.ico";
 
 window.onload = function() {
     generateRandomCard();
-    document.getElementById('theCard').addEventListener('click', generateRandomCard);
+    document.getElementById('theCard').addEventListener('click', flipCard);
 };
+
+function flipCard() {
+    let cardElement = document.getElementById('theCard');
+    cardElement.classList.add("flip");
+
+    setTimeout(() => {
+        generateRandomCard();
+        cardElement.classList.remove("flip");
+    }, 200); 
+}
 
 function generateRandomCard() {
     let cardNumbers = ["A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"];
@@ -32,4 +42,3 @@ function getSuitClass(suit) {
         case "Clubs": return "suit-clubs";
     }
 }
-
