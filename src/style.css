@@ -1,107 +1,75 @@
-@import "bootstrap/dist/css/bootstrap.min.css";
-
-html, body {
-    height: 100%;
-    width: 100%;
-    margin: 0;
-    padding: 0;
-    background: linear-gradient(132deg, rgb(15, 39, 10) 0%, rgb(33, 112, 21) 100%);
-    background-attachment: fixed;
-    background-size: cover;
-}
-.fixed-bottom {
-    color: #d3d3d3;
-    text-align: center;
-    width: 100%;
-    padding: 15px;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    z-index: 10;
-  }
-
-h1 {
-    color: white;
-    font-weight: bold;
-    font-size: 2rem;
-    background-color: rgba(0, 0, 0, 0.267);
-    margin: 0px;
-    padding: 40px;
-    /*box-shadow: 0px 0px 20px 10px rgb(15, 39, 10);*/
-    text-align: center;
-    width: 100vw;
-}
-
-.centered {
-    margin-left: auto;
-    margin-right: auto;
-    width: 300px;
-    margin-top: 50px;
-}
-
-.card {
-    width: 300px;
-    height: 440px;
-    border-radius: 15px;
-    background: white;
-    box-shadow: 3px 3px 9px rgba(0, 0, 0, 0.3);
-    position: relative;
+body {
+    background-color: #010101;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 150px;
-    font-family: Arial, serif;
-    transition: transform 0.4s;
-    transform-style: preserve-3d;
+    height: 100vh;
+    margin: 0;
 }
 
-.card:hover {
-    transform: scale(1.05);
-    cursor: pointer;
+.container {
+    display: flex;
+    align-items: center;
+    font-size: 3rem;
+    color: white;
+    position: relative;
 }
 
-.card.flip {
-    transform: rotateY(180deg);
-
-}
-
-.suit-hearts::before, .suit-hearts::after,
-.suit-diamonds::before, .suit-diamonds::after,
-.suit-spades::before, .suit-spades::after,
-.suit-clubs::before, .suit-clubs::after {
+.letter {
+    opacity: 0;
+    transition: opacity 0.4s ease-in-out, transform 0.4s ease-in-out;
     position: absolute;
-    font-size: 90px;
 }
 
-.suit-hearts::before, .suit-diamonds::before,
-.suit-spades::before, .suit-clubs::before {
-    top: 6px;
-    left: 20px;
+.i {
+    left: -150px;
+    transform: translateX(50px);
 }
 
-.suit-hearts::after, .suit-diamonds::after,
-.suit-spades::after, .suit-clubs::after {
-    bottom: 6px;
-    right: 20px;
-    transform: rotate(180deg);
+.you {
+    right: -200px;
+    transform: translateX(-50px);
 }
 
-.suit-hearts::before, .suit-hearts::after {
-    content: "♥";
-    color: red;
+.heart {
+    width: 150px;
+    height: 150px;
+    background-color: red;
+    position: relative;
+    transform: rotate(-45deg);
+    animation: heartbeat 1s infinite;
 }
 
-.suit-diamonds::before, .suit-diamonds::after {
-    content: "♦";
-    color: red;
+.heart::before,
+.heart::after {
+    content: '';
+    width: 150px;
+    height: 150px;
+    background-color: rgb(255, 0, 0);
+    border-radius: 50%;
+    position: absolute;
 }
 
-.suit-spades::before, .suit-spades::after {
-    content: "♠";
-    color: black;
+.heart::before {
+    top: -75px;
+    left: 0;
 }
 
-.suit-clubs::before, .suit-clubs::after {
-    content: "♣";
-    color: black;
+.heart::after {
+    left: 75px;
+    top: 0;
+}
+
+@keyframes heartbeat {
+    0%, 100% {
+        transform: scale(1) rotate(-45deg);
+    }
+    50% {
+        transform: scale(1.2) rotate(-45deg);
+    }
+}
+
+.container:hover .letter {
+    opacity: 1;
+    transform: translateX(0);
 }
